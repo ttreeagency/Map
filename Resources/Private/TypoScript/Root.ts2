@@ -1,1 +1,21 @@
 include: NodeTypes/Map.ts2
+
+namespace: TypoScript=TYPO3.TypoScript
+
+prototype(TYPO3.Neos:Page) {
+	head {
+		javascripts.ttreeMapBackend = TypoScript:Tag {
+			workspace = ${node.context.workspace.name}
+
+			tagName = 'script'
+			attributes {
+				src = TypoScript:ResourceUri {
+					path = 'resource://Ttree.Map/Public/JavaScript/Backend.js'
+				}
+			}
+
+			@position = 'end'
+			@process.onlyForBackend = ${this.workspace != 'live' ? value : ''}
+		}
+	}
+}

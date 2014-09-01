@@ -60,5 +60,5 @@
 
 		google.maps.event.addDomListener(window, 'load', initializeMap{identifier});
 	</script>
-	<div id="map_canvas_{identifier}" style="height: {height}; width: {width};"></div>
+	<div id="map_canvas_{identifier}" data-identifier="{identifier}" class="map-container" style="height: {height}; width: {width};"></div>
 </neos:contentElement>
