@@ -1,0 +1,14 @@
+{
+    "name": "ttree/map",
+    "type": "typo3-flow-package",
+    "description": "Map Integration for TYPO3 Neos, based on Google Map",
+    "require": {
+        "typo3/flow": "*",
+        "typo3/typo3cr": "*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Ttree\\Map": "Classes"
+        }
+    }
+}

@@ -1,0 +1,57 @@
+'Ttree.Map:BaseMap':
+  abstract: TRUE
+  ui:
+    group: 'general'
+    icon: 'icon-map-marker'
+    label: 'Map'
+    inspector:
+      groups:
+        mapBase:
+          label: 'Configuration'
+          position: 1
+  properties:
+    longitude:
+      type: string
+      defaultValue: '46.526448'
+      ui:
+        label: 'Longitude:'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'mapBase'
+    latitude:
+      type: string
+      defaultValue: '6.631185'
+      ui:
+        label: 'Latitude:'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'mapBase'
+    zoomlevel:
+      type: string
+      defaultValue: '10'
+      ui:
+        label: 'Zoomlevel 1-20'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'mapBase'
+    width:
+      type: string
+      defaultValue: '100%'
+      ui:
+        label: 'Width:'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'mapBase'
+    height:
+      type: string
+      defaultValue: '400px'
+      ui:
+        label: 'Height:'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'mapBase'
+
+'Ttree.Map:Map':
+  superTypes:
+    - 'TYPO3.Neos:Content'
+    - 'Ttree.Map:BaseMap'

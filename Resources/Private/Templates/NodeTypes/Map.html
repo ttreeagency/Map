@@ -1,0 +1,64 @@
+{namespace neos=TYPO3\Neos\ViewHelpers}
+<neos:contentElement node="{node}">
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+	<script>
+		function initializeMap{identifier}() <![CDATA[{]]>
+			var myLatlng = new google.maps.LatLng({longitude},{latitude});
+
+			var roadAtlasStyles = [
+				{
+					"featureType": "road.highway",
+					"elementType": "geometry",
+					"stylers": [
+						{ "saturation": -80 },
+						{ "lightness": -8 },
+						{ "gamma": 1 }
+					]
+				}, {
+					"featureType": "road.arterial",
+					"elementType": "geometry",
+					"stylers": [
+						{ "saturation": -80 },
+						{ "gamma": 1 },
+						{ "lightness": -24 }
+					]
+				}, {
+					"featureType": "road",
+					"stylers": [
+						{ "saturation": -80 }
+					]
+				} ];
+
+			var mapOptions = <![CDATA[{]]>
+				zoom: {zoomlevel},
+				center: myLatlng,
+				disableDefaultUI: true,
+				panControl: false,
+				zoomControl: false,
+				scaleControl: true,
+				mapTypeControlOptions: {
+					mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'roadatlas']
+				}
+			};
+
+			var map = new google.maps.Map(document.getElementById('map_canvas_{identifier}'), mapOptions);
+
+			var styledMapOptions = <![CDATA[{]]>
+
+			};
+
+			var mapType = new google.maps.StyledMapType(roadAtlasStyles, styledMapOptions);
+
+			map.mapTypes.set('roadatlas', mapType);
+			map.setMapTypeId('roadatlas');
+
+			var marker = new google.maps.Marker({
+					position: myLatlng,
+					map: map
+				});
+		}
+
+		google.maps.event.addDomListener(window, 'load', initializeMap{identifier});
+	</script>
+	<div id="map_canvas_{identifier}" style="height: {height}; width: {width};"></div>
+</neos:contentElement>
