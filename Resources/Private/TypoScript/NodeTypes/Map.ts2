@@ -2,16 +2,18 @@ prototype(Ttree.Map:Map) >
 prototype(Ttree.Map:Map) < prototype(TYPO3.Neos:Content) {
 	templatePath = 'resource://Ttree.Map/Private/Templates/NodeTypes/Map.html'
 
-	node = ${node}
-
 	identifier = ${String.md5(q(node).property('_path'))}
 
-	longitude = ${q(node).property('longitude')}
-	latitude = ${q(node).property('latitude')}
+	@override {
+		identifier = ${this.identifier}
+		width = ${q(node).property('width') ? q(node).property('width') : '100%'}
+		height = ${q(node).property('height') ? q(node).property('height') : '200px'}
+	}
 
-	zoomlevel = ${q(node).property('zoomlevel')}
-
-	width = ${q(node).property('width')}
-	height = ${q(node).property('height')}
-
+	attributes = TYPO3.TypoScript:Attributes {
+		id = ${"map_canvas_" + identifier}
+		data-identifier = ${identifier}
+		class = 'map-container'
+		style = ${"height: " + height + "; width: " + width + ";"}
+	}
 }

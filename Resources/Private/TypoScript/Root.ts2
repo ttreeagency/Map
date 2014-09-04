@@ -1,21 +1,35 @@
+include: NodeTypes/MapConfiguration.ts2
 include: NodeTypes/Map.ts2
 
 namespace: TypoScript=TYPO3.TypoScript
 
 prototype(TYPO3.Neos:Page) {
 	head {
-		javascripts.ttreeMapBackend = TypoScript:Tag {
-			workspace = ${node.context.workspace.name}
 
-			tagName = 'script'
-			attributes {
-				src = TypoScript:ResourceUri {
-					path = 'resource://Ttree.Map/Public/JavaScript/Backend.js'
-				}
+		ttreeMap = TypoScript:Array {
+
+			header = TYPO3.TypoScript:Template {
+				@position = 'start'
+				templatePath = 'resource://Ttree.Map/Private/Templates/TypoScriptObjects/HeaderData.html'
+				node = ${node}
 			}
 
-			@position = 'end'
-			@process.onlyForBackend = ${this.workspace != 'live' ? value : ''}
+			configuration = TypoScript:Tag {
+				maps = ${q(documentNode).find('main').find('[instanceof Ttree.Map:Map]')}
+				@override.maps = ${this.maps}
+				tagName = 'script'
+				attributes {
+					id = 'ttree-map-configuration'
+					type = 'text/json'
+				}
+				content = Ttree.Map:MapConfiguration {
+					maps = ${maps}
+				}
+
+				@process.onlyIfMapOnCurrentDocument = ${this.maps.count() ? value : ''}
+			}
+
+			@position = 'after javascripts'
 		}
 	}
 }

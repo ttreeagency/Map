@@ -1,0 +1,7 @@
+{namespace neos=TYPO3\Neos\ViewHelpers}
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+<f:if condition="{node.context.workspace.name} != 'live'">
+	<f:security.ifAccess resource="TYPO3_Neos_Backend_GeneralAccess">
+		<script src="{f:uri.resource(path: 'JavaScript/Backend.js', package: 'Ttree.Map')}"></script>
+	</f:security.ifAccess>
+</f:if>

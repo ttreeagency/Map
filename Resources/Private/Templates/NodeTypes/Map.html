@@ -1,64 +1,36 @@
 {namespace neos=TYPO3\Neos\ViewHelpers}
-<neos:contentElement node="{node}">
-	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+<div>
 	<script>
 		function initializeMap{identifier}() <![CDATA[{]]>
-			var myLatlng = new google.maps.LatLng({longitude},{latitude});
+			var identifier = '{identifier}',
+				configuration = JSON.parse($("#ttree-map-configuration").html()),
+				mapConfiguration = configuration.maps[identifier];
 
-			var roadAtlasStyles = [
-				{
-					"featureType": "road.highway",
-					"elementType": "geometry",
-					"stylers": [
-						{ "saturation": -80 },
-						{ "lightness": -8 },
-						{ "gamma": 1 }
-					]
-				}, {
-					"featureType": "road.arterial",
-					"elementType": "geometry",
-					"stylers": [
-						{ "saturation": -80 },
-						{ "gamma": 1 },
-						{ "lightness": -24 }
-					]
-				}, {
-					"featureType": "road",
-					"stylers": [
-						{ "saturation": -80 }
-					]
-				} ];
+			var mapOptions = configuration.maps[identifier].options,
+				myLatlng = new google.maps.LatLng(mapConfiguration.longitude || 0.00,mapConfiguration.latitude || 0.00)
 
-			var mapOptions = <![CDATA[{]]>
-				zoom: {zoomlevel},
-				center: myLatlng,
-				disableDefaultUI: true,
-				panControl: false,
-				zoomControl: false,
-				scaleControl: true,
-				mapTypeControlOptions: {
-					mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'roadatlas']
-				}
-			};
+			mapOptions.center = myLatlng;
+			mapOptions.mapTypeControlOptions = {
+				mapTypeIds: [google.maps.MapTypeId.ROADMAP, "styles"]
+			}
 
-			var map = new google.maps.Map(document.getElementById('map_canvas_{identifier}'), mapOptions);
+			var map = new google.maps.Map(document.getElementById("map_canvas_" + identifier), mapOptions);
 
 			var styledMapOptions = <![CDATA[{]]>
 
 			};
 
-			var mapType = new google.maps.StyledMapType(roadAtlasStyles, styledMapOptions);
-
-			map.mapTypes.set('roadatlas', mapType);
-			map.setMapTypeId('roadatlas');
+			var mapType = new google.maps.StyledMapType(configuration.styles.default, styledMapOptions);
+			map.mapTypes.set("styles", mapType);
+			map.setMapTypeId("styles");
 
 			var marker = new google.maps.Marker({
-					position: myLatlng,
-					map: map
-				});
+				position: myLatlng,
+				map: map
+			});
 		}
 
 		google.maps.event.addDomListener(window, 'load', initializeMap{identifier});
 	</script>
-	<div id="map_canvas_{identifier}" data-identifier="{identifier}" class="map-container" style="height: {height}; width: {width};"></div>
-</neos:contentElement>
+	<div{attributes -> f:format.raw()}></div>
+</div>

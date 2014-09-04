@@ -1,5 +1,5 @@
 if (typeof document.addEventListener === 'function') {
-	document.addEventListener('Neos.PageLoaded', function (event) {
+	var initializeMaps = function() {
 		$(".map-container").each(function () {
 			var functionName = "initializeMap" + $(this).data("identifier"),
 				fn = window[functionName];
@@ -8,5 +8,9 @@ if (typeof document.addEventListener === 'function') {
 				fn();
 			}
 		});
+	};
+
+	document.addEventListener('Neos.PageLoaded', function (e) {
+		initializeMaps();
 	}, false);
 }

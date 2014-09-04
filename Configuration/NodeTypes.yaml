@@ -1,3 +1,19 @@
+'Ttree.Map:PointOfInterest':
+  abstract: TRUE
+  properties:
+    longitude:
+      type: string
+      defaultValue: '46.526448'
+      ui:
+        label: 'Longitude:'
+        reloadIfChanged: TRUE
+    latitude:
+      type: string
+      defaultValue: '6.631185'
+      ui:
+        label: 'Latitude:'
+        reloadIfChanged: TRUE
+
 'Ttree.Map:BaseMap':
   abstract: TRUE
   ui:
@@ -9,23 +25,10 @@
         mapBase:
           label: 'Configuration'
           position: 1
+        mapAdvanced:
+          label: 'Advanced Configuration'
+          position: 2
   properties:
-    longitude:
-      type: string
-      defaultValue: '46.526448'
-      ui:
-        label: 'Longitude:'
-        reloadIfChanged: TRUE
-        inspector:
-          group: 'mapBase'
-    latitude:
-      type: string
-      defaultValue: '6.631185'
-      ui:
-        label: 'Latitude:'
-        reloadIfChanged: TRUE
-        inspector:
-          group: 'mapBase'
     zoomlevel:
       type: string
       defaultValue: '10'
@@ -50,8 +53,50 @@
         reloadIfChanged: TRUE
         inspector:
           group: 'mapBase'
+    disableDefaultUI:
+      type: boolean
+      defaultValue: FALSE
+      ui:
+        label: 'Disable Default UI'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'mapAdvanced'
+    panControl:
+      type: boolean
+      defaultValue: TRUE
+      ui:
+        label: 'Pan Control'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'mapAdvanced'
+    zoomControl:
+      type: boolean
+      defaultValue: TRUE
+      ui:
+        label: 'Zoom Control'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'mapAdvanced'
+    scaleControl:
+      type: boolean
+      defaultValue: TRUE
+      ui:
+        label: 'Scale Control'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'mapAdvanced'
 
 'Ttree.Map:Map':
   superTypes:
     - 'TYPO3.Neos:Content'
     - 'Ttree.Map:BaseMap'
+    - 'Ttree.Map:PointOfInterest'
+  properties:
+    longitude:
+      ui:
+        inspector:
+          group: 'mapBase'
+    latitude:
+      ui:
+        inspector:
+          group: 'mapBase'

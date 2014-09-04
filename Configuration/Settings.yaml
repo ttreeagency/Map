@@ -3,3 +3,37 @@ TYPO3:
     typoScript:
       autoInclude:
         'Ttree.Map': TRUE
+
+Ttree:
+  Map:
+    styles:
+      default:
+        name: "Default Styles"
+        settings:
+          -
+            featureType: 'road.highway'
+            elementType: 'geometry'
+            stylers:
+              -
+                saturation: -80
+              -
+                lightness: -8
+              -
+                gamma: -1
+          -
+            featureType: 'road.arterial'
+            elementType: 'geometry'
+            stylers:
+              -
+                saturation: -80
+              -
+                lightness: -24
+              -
+                gamma: -1
+          -
+            featureType: 'road.road'
+            elementType: 'geometry'
+            stylers:
+              -
+                saturation: -80
+
