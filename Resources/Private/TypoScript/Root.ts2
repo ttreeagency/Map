@@ -30,6 +30,7 @@ prototype(TYPO3.Neos:Page) {
 			}
 
 			@position = 'after javascripts'
+			@if.hasMap = ${q(documentNode).children('[instanceof Ttree.Map:BaseMap]').count() > 0 || node.context.workspace.name != 'live'}
 		}
 	}
 }
