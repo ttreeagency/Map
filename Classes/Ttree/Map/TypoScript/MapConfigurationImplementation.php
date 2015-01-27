@@ -68,6 +68,9 @@ class MapConfigurationImplementation extends TemplateImplementation {
 	 */
 	protected function getStylesConfiguration() {
 		$styles = array();
+		if (!is_array($this->styles)) {
+			return $style;
+		}
 		foreach($this->styles as $preset => $style) {
 			if (isset($style['settings']) && is_array($style['settings'])) {
 				$styles[$preset] = $style['settings'];
