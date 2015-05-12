@@ -21,13 +21,19 @@
     icon: 'icon-map-marker'
     label: 'Map'
     inspector:
+      tabs:
+        map:
+          label: 'Map'
+          icon: 'icon-map-marker'
       groups:
         mapBase:
           label: 'Configuration'
           position: 1
+          tab: 'map'
         mapAdvanced:
           label: 'Advanced Configuration'
           position: 2
+          tab: 'map'
   properties:
     zoomlevel:
       type: string

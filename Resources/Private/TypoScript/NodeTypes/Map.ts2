@@ -4,16 +4,33 @@ prototype(Ttree.Map:Map) < prototype(TYPO3.Neos:Content) {
 
 	identifier = ${String.md5(q(node).property('_path'))}
 
+	width = '100%'
+	height = '300px'
+
 	@override {
 		identifier = ${this.identifier}
-		width = ${q(node).property('width') ? q(node).property('width') : '100%'}
-		height = ${q(node).property('height') ? q(node).property('height') : '200px'}
+		width = ${q(node).property('width') ? q(node).property('width') : this.width}
+		height = ${q(node).property('height') ? q(node).property('height') : this.height}
+	}
+
+	configuration = TYPO3.TypoScript:Tag {
+		tagName = 'script'
+
+		attributes {
+			class = 'ttree-map-configuration-js'
+			type = 'text/json'
+			data-map-identifier = ${"ttree-map-" + identifier}
+		}
+
+		content = Ttree.Map:MapConfiguration {
+			map = ${node}
+		}
 	}
 
 	attributes = TYPO3.TypoScript:Attributes {
-		id = ${"map_canvas_" + identifier}
+		id = ${"ttree-map-" + identifier}
 		data-identifier = ${identifier}
-		class = 'map-container'
+		class = 'ttree-map__container'
 		style = ${"height: " + height + "; width: " + width + ";"}
 	}
 }

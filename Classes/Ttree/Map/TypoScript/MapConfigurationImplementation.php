@@ -29,8 +29,29 @@ class MapConfigurationImplementation extends TemplateImplementation {
 	/**
 	 * @return array
 	 */
-	public function getMaps() {
-		return $this->tsValue('maps') ?: array();
+	public function getMap() {
+		return $this->tsValue('map') ?: array();
+	}
+
+	/**
+	 * @return float
+	 */
+	public function getDefaultLongitude() {
+		return $this->tsValue('defaultLongitude');
+	}
+
+	/**
+	 * @return float
+	 */
+	public function getDefaultLatitude() {
+		return $this->tsValue('defaultLatitude');
+	}
+
+	/**
+	 * @return integer
+	 */
+	public function getDefaultZoomLevel() {
+		return (integer)$this->tsValue('defaultZoomLevel');
 	}
 
 	/**
@@ -39,26 +60,23 @@ class MapConfigurationImplementation extends TemplateImplementation {
 	 * @return string
 	 */
 	public function evaluate() {
-		$configuration = array();
+		$configuration = [];
 		$configuration['styles'] = $this->getStylesConfiguration();
-		$configuration['maps'] = array();
-		$configuration['counter'] = count($this->getMaps());
-		foreach ($this->getMaps() as $map) {
-			/** @var NodeInterface $map */
-			$configuration['maps'][md5($map->getPath())] = array(
-				'width' => $map->getProperty('width'),
-				'height' => $map->getProperty('height'),
-				'longitude' => $map->getProperty('longitude'),
-				'latitude' => $map->getProperty('latitude'),
-				'options' => array(
-					'zoom' => (integer)$map->getProperty('zoomlevel') ?: 10,
-					'disableDefaultUI' => (boolean)$map->getProperty('disableDefaultUI'),
-					'panControl' => (boolean)$map->getProperty('panControl'),
-					'zoomControl' => (boolean)$map->getProperty('zoomControl'),
-					'scaleControl' => (boolean)$map->getProperty('scaleControl')
-				)
-			);
-		}
+		/** @var NodeInterface $map */
+		$map = $this->getMap();
+		$configuration['map'] = array(
+			'width' => $map->getProperty('width'),
+			'height' => $map->getProperty('height'),
+			'longitude' => $map->getProperty('longitude') ?: $this->getDefaultLongitude(),
+			'latitude' => $map->getProperty('latitude') ?: $this->getDefaultLatitude(),
+			'options' => array(
+				'zoom' => (integer)$map->getProperty('zoomlevel') ?: $this->getDefaultZoomLevel(),
+				'disableDefaultUI' => (boolean)$map->getProperty('disableDefaultUI'),
+				'panControl' => (boolean)$map->getProperty('panControl'),
+				'zoomControl' => (boolean)$map->getProperty('zoomControl'),
+				'scaleControl' => (boolean)$map->getProperty('scaleControl')
+			)
+		);
 
 		return json_encode($configuration);
 	}
@@ -69,9 +87,9 @@ class MapConfigurationImplementation extends TemplateImplementation {
 	protected function getStylesConfiguration() {
 		$styles = array();
 		if (!is_array($this->styles)) {
-			return $style;
+			return array();
 		}
-		foreach($this->styles as $preset => $style) {
+		foreach ($this->styles as $preset => $style) {
 			if (isset($style['settings']) && is_array($style['settings'])) {
 				$styles[$preset] = $style['settings'];
 			}

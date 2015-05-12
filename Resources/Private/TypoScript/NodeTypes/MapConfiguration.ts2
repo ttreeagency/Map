@@ -1,4 +1,8 @@
 prototype(Ttree.Map:MapConfiguration) >
 prototype(Ttree.Map:MapConfiguration) {
 	@class = 'Ttree\\Map\\TypoScript\\MapConfigurationImplementation'
+
+	defaultLatitude = 6.631185
+	defaultLongitude = 46.526448
+	defaultZoomLevel = 10
 }
