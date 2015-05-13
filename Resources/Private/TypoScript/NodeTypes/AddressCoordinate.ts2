@@ -1,0 +1,6 @@
+prototype(Ttree.Map:AddressCoordinate) >
+prototype(Ttree.Map:AddressCoordinate) {
+	@class = 'Ttree\\Map\\TypoScript\\AddressCoordinateImplementation'
+
+	address = 'rue du valentin 34, lausanne'
+}

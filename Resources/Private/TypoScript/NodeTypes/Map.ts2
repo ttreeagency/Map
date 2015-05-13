@@ -1,36 +1,34 @@
-prototype(Ttree.Map:Map) >
-prototype(Ttree.Map:Map) < prototype(TYPO3.Neos:Content) {
+prototype(Ttree.Map:Map) {
 	templatePath = 'resource://Ttree.Map/Private/Templates/NodeTypes/Map.html'
 
 	identifier = ${String.md5(q(node).property('_path'))}
+	address = NULL
+	@override.address = ${this.address}
 
 	width = '100%'
 	height = '300px'
 
 	@override {
+		address = ${this.address}
 		identifier = ${this.identifier}
+
 		width = ${q(node).property('width') ? q(node).property('width') : this.width}
 		height = ${q(node).property('height') ? q(node).property('height') : this.height}
-	}
-
-	configuration = TYPO3.TypoScript:Tag {
-		tagName = 'script'
-
-		attributes {
-			class = 'ttree-map-configuration-js'
-			type = 'text/json'
-			data-map-identifier = ${"ttree-map-" + identifier}
-		}
-
-		content = Ttree.Map:MapConfiguration {
-			map = ${node}
-		}
 	}
 
 	attributes = TYPO3.TypoScript:Attributes {
 		id = ${"ttree-map-" + identifier}
 		data-identifier = ${identifier}
-		class = 'ttree-map__container'
+
+		class = 'ttree-map'
+		class.@process.appendClassUsedByJavascript = ${String.trim(value + ' ttree-map-configuration-js')}
+
 		style = ${"height: " + height + "; width: " + width + ";"}
-	}
+
+		data-ttree-map-configuration = Ttree.Map:MapConfiguration {
+			address = ${address}
+			map = ${node}
+
+			@process.rawUrlEncode = ${String.rawUrlEncode(value)}
+		}
 }

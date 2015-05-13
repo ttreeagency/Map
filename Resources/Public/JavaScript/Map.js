@@ -1,5 +1,5 @@
 TtreeMap = {
-	initializeSingleMap: function(target, configuration) {
+	initializeSingleMap: function(map, configuration) {
 		var mapConfiguration = configuration.map,
 			mapOptions = mapConfiguration.options,
 			myLatlng = new google.maps.LatLng(mapConfiguration.longitude, mapConfiguration.latitude);
@@ -9,7 +9,7 @@ TtreeMap = {
 			mapTypeIds: [google.maps.MapTypeId.ROADMAP, "styles"]
 		};
 
-		var map = new google.maps.Map(document.getElementById(target), mapOptions),
+		var map = new google.maps.Map(map, mapOptions),
 			mapType = new google.maps.StyledMapType(configuration.styles.default, {});
 
 		map.mapTypes.set("styles", mapType);
@@ -22,12 +22,10 @@ TtreeMap = {
 	},
 	initialize: function() {
 		$(".ttree-map-configuration-js").each(function() {
-			var element = $(this),
-				configuration = JSON.parse(element.html()),
-				target = element.data('map-identifier');
+			var el = $(this),
+				configuration = JSON.parse(decodeURIComponent(el.data('ttreeMapConfiguration')));
 
-			console.log(configuration, target);
-			TtreeMap.initializeSingleMap(target, configuration);
+			TtreeMap.initializeSingleMap(el[0], configuration);
 		});
 
 	}

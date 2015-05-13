@@ -1,5 +1,4 @@
-include: NodeTypes/MapConfiguration.ts2
-include: NodeTypes/Map.ts2
+include: NodeTypes/*
 
 namespace: TypoScript=TYPO3.TypoScript
 

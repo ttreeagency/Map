@@ -2,7 +2,24 @@ prototype(Ttree.Map:MapConfiguration) >
 prototype(Ttree.Map:MapConfiguration) {
 	@class = 'Ttree\\Map\\TypoScript\\MapConfigurationImplementation'
 
-	defaultLatitude = 6.631185
-	defaultLongitude = 46.526448
-	defaultZoomLevel = 10
+	map = ${node}
+
+	address = NULL
+	@override.address = ${this.address}
+
+	disableDefaultUI = ${q(this.map).property('disableDefaultUI')}
+	panControl = ${q(this.map).property('panControl')}
+	zoomControl = ${q(this.map).property('zoomControl')}
+	scaleControl = ${q(this.map).property('scaleControl')}
+
+	width = ${q(this.map).property('width') ? q(this.map).property('width') : '100%'}
+	height = ${q(this.map).property('height') ? q(this.map).property('height') : '300px'}
+
+	coordinates = Ttree.Map:AddressCoordinate {
+		address = ${address}
+	}
+	latitude = ${q(this.map).property('latitude') ? q(this.map).property('latitude') : 6.631185}
+	longitude = ${q(this.map).property('longitude') ? q(this.map).property('longitude') : 46.526448}
+
+	zoomLevel = ${q(this.map).property('zoomlevel') ? q(this.map).property('zoomlevel') : 10}
 }
