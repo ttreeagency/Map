@@ -68,7 +68,7 @@ class AddressCoordinateImplementation extends AbstractTypoScriptObject {
 		$endpoint = str_replace(array('{address}'), array($address), self::ENDPOINT_URI_PATTERN);
 		$response = $this->browser->request($endpoint);
 
-		if ($response->getStatus() !== 200) {
+		if ($response->getStatusCode() !== 200) {
 			return NULL;
 		}
 		$output = json_decode($response->getContent());
