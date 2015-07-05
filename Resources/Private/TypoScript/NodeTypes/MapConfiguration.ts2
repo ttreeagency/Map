@@ -18,8 +18,10 @@ prototype(Ttree.Map:MapConfiguration) {
 	coordinates = Ttree.Map:AddressCoordinate {
 		address = ${address}
 	}
-	latitude = ${q(this.map).property('latitude') ? q(this.map).property('latitude') : 6.631185}
-	longitude = ${q(this.map).property('longitude') ? q(this.map).property('longitude') : 46.526448}
-
-	zoomLevel = ${q(this.map).property('zoomlevel') ? q(this.map).property('zoomlevel') : 10}
+	defaultLatitude = 6.631185
+	latitude = ${q(this.map).property('latitude') ? q(this.map).property('latitude') : this.defaultLatitude}
+	defaultLongitude = 46.526448
+	longitude = ${q(this.map).property('longitude') ? q(this.map).property('longitude') : this.defaultLongitude}
+	defaultZoomLevel = 10
+	zoomLevel = ${q(this.map).property('zoomlevel') ? q(this.map).property('zoomlevel') : this.defaultZoomLevel}
 }
