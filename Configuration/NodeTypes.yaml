@@ -59,6 +59,14 @@
         reloadIfChanged: TRUE
         inspector:
           group: 'mapBase'
+    longitude:
+      ui:
+        inspector:
+          group: 'mapBase'
+    latitude:
+      ui:
+        inspector:
+          group: 'mapBase'
     disableDefaultUI:
       type: boolean
       defaultValue: FALSE
@@ -97,12 +105,3 @@
     - 'TYPO3.Neos:Content'
     - 'Ttree.Map:BaseMap'
     - 'Ttree.Map:PointOfInterest'
-  properties:
-    longitude:
-      ui:
-        inspector:
-          group: 'mapBase'
-    latitude:
-      ui:
-        inspector:
-          group: 'mapBase'
