@@ -27,22 +27,30 @@ class ConfigurationImplementation extends TemplateImplementation {
 	 * @return float
 	 */
 	public function getLongitude() {
+		$longitude = $this->tsValue('latitude');
+		if (is_float($longitude)) {
+			return $longitude;
+		}
 		$coordinates = $this->getCoordinates();
 		if (is_array($coordinates) && isset($coordinates['longitude'])) {
 			return $coordinates['longitude'];
 		}
-		return $this->tsValue('longitude');
+		return NULL;
 	}
 
 	/**
 	 * @return float
 	 */
 	public function getLatitude() {
+		$latitude = $this->tsValue('latitude');
+		if (is_float($latitude)) {
+			return $latitude;
+		}
 		$coordinates = $this->getCoordinates();
 		if (is_array($coordinates) && isset($coordinates['latitude'])) {
 			return $coordinates['latitude'];
 		}
-		return $this->tsValue('latitude');
+		return NULL;
 	}
 
 	/**

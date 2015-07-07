@@ -46,14 +46,14 @@ class GeocoderCommandController extends CommandController {
 		/** @var NodeInterface $node */
 		foreach ($flowQuery as $node) {
 			$this->outputLine('  %s', array($node->getLabel()));
-			if ($force === FALSE && trim($node->getProperty('longitude')) !== '' && trim($node->getProperty('latitude')) !== '') {
+			if ($force === FALSE && trim($node->getProperty('reversedLongitude')) !== '' && trim($node->getProperty('reversedLatitude')) !== '') {
 				continue;
 			}
 			$address = $this->propertyMapper->convert($node, Address::class);
 			$coordinates = $this->geocodeService->geocode($address);
 			if ($coordinates !== NULL) {
-				$node->setProperty('longitude', $coordinates['longitude']);
-				$node->setProperty('latitude', $coordinates['latitude']);
+				$node->setProperty('reversedLongitude', $coordinates['longitude']);
+				$node->setProperty('reversedLatitude', $coordinates['latitude']);
 				++$match;
 			} else {
 				$unmatchedNodes[] = $node;

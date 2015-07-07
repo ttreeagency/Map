@@ -1,18 +1,38 @@
 'Ttree.Map:PointOfInterest':
   abstract: TRUE
+  ui:
+    inspector:
+      groups:
+        mapBase:
+          label: 'Configuration'
+          tab: 'map'
   properties:
     longitude:
       type: string
-      defaultValue: '46.526448'
       ui:
         label: 'Longitude:'
         reloadIfChanged: TRUE
+        inspector:
+          group: 'mapBase'
+          position: 1
+    reversedLongitude:
+      type: string
+      ui:
+        inspector:
+          group: ~
     latitude:
       type: string
-      defaultValue: '6.631185'
       ui:
         label: 'Latitude:'
         reloadIfChanged: TRUE
+        inspector:
+          group: 'mapBase'
+          position: 2
+    reversedLatitude:
+      type: string
+      ui:
+        inspector:
+          group: ~
 
 'Ttree.Map:BaseMap':
   abstract: TRUE
@@ -28,11 +48,9 @@
       groups:
         mapBase:
           label: 'Configuration'
-          position: 1
           tab: 'map'
         mapAdvanced:
           label: 'Advanced Configuration'
-          position: 2
           tab: 'map'
   properties:
     zoomlevel:
@@ -47,7 +65,7 @@
       type: string
       defaultValue: '100%'
       ui:
-        label: 'Width:'
+        label: 'Width'
         reloadIfChanged: TRUE
         inspector:
           group: 'mapBase'
@@ -55,16 +73,8 @@
       type: string
       defaultValue: '400px'
       ui:
-        label: 'Height:'
+        label: 'Height'
         reloadIfChanged: TRUE
-        inspector:
-          group: 'mapBase'
-    longitude:
-      ui:
-        inspector:
-          group: 'mapBase'
-    latitude:
-      ui:
         inspector:
           group: 'mapBase'
     disableDefaultUI:
