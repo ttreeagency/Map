@@ -2,7 +2,7 @@ TtreeMap = {
 	initializeSingleMap: function(map, configuration) {
 		var mapConfiguration = configuration.map,
 			mapOptions = mapConfiguration.options,
-			myLatlng = new google.maps.LatLng(mapConfiguration.longitude, mapConfiguration.latitude);
+			myLatlng = new google.maps.LatLng(mapConfiguration.latitude, mapConfiguration.longitude);
 
 		mapOptions.center = myLatlng;
 		mapOptions.mapTypeControlOptions = {
