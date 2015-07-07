@@ -38,11 +38,12 @@ class GeocoderService {
 	 */
 	public function geocode($address) {
 		try {
+			$address = trim($address);
 			$cacheKey = md5($address);
 			if (isset($this->runtimeCache[$cacheKey])) {
 				return $this->runtimeCache[$cacheKey];
 			}
-			$coordinates = $this->geocoder->geocode(trim($address));
+			$coordinates = $this->geocoder->geocode($address);
 			if (!$coordinates->count()) {
 				return NULL;
 			}
