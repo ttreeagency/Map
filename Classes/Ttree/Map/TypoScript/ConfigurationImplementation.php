@@ -6,9 +6,9 @@ use TYPO3\TYPO3CR\Domain\Model\NodeInterface;
 use TYPO3\TypoScript\TypoScriptObjects\TemplateImplementation;
 
 /**
- *
+ * Google Map Configuration TS implementation
  */
-class MapConfigurationImplementation extends TemplateImplementation {
+class ConfigurationImplementation extends TemplateImplementation {
 
 	/**
 	 * @flow\inject(setting="styles")

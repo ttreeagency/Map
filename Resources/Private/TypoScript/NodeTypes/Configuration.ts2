@@ -1,6 +1,6 @@
-prototype(Ttree.Map:MapConfiguration) >
-prototype(Ttree.Map:MapConfiguration) {
-	@class = 'Ttree\\Map\\TypoScript\\MapConfigurationImplementation'
+prototype(Ttree.Map:Configuration) >
+prototype(Ttree.Map:Configuration) {
+	@class = 'Ttree\\Map\\TypoScript\\ConfigurationImplementation'
 
 	map = ${node}
 
@@ -15,9 +15,10 @@ prototype(Ttree.Map:MapConfiguration) {
 	width = ${q(this.map).property('width') ? q(this.map).property('width') : '100%'}
 	height = ${q(this.map).property('height') ? q(this.map).property('height') : '300px'}
 
-	coordinates = Ttree.Map:AddressCoordinate {
+	coordinates = Ttree.Map:Geocode {
 		address = ${address}
 	}
+
 	defaultLatitude = 6.631185
 	latitude = ${q(this.map).property('latitude') ? q(this.map).property('latitude') : this.defaultLatitude}
 	defaultLongitude = 46.526448

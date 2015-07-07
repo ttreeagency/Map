@@ -25,7 +25,7 @@ prototype(Ttree.Map:Map) {
 
 		style = ${"height: " + height + "; width: " + width + ";"}
 
-		data-ttree-map-configuration = Ttree.Map:MapConfiguration {
+		data-ttree-map-configuration = Ttree.Map:Configuration {
 			address = ${address}
 			map = ${node}
 
