@@ -1,10 +1,12 @@
 <?php
 namespace Ttree\Map\Command;
 
+use Ttree\Map\Domain\Model\Address;
 use Ttree\Map\Service\GeocoderService;
 use TYPO3\Eel\FlowQuery\FlowQuery;
 use TYPO3\Flow\Annotations as Flow;
 use TYPO3\Flow\Cli\CommandController;
+use TYPO3\Flow\Property\PropertyMapper;
 use TYPO3\TYPO3CR\Domain\Model\NodeInterface;
 use TYPO3\TYPO3CR\Domain\Service\ContextFactoryInterface;
 
@@ -23,36 +25,48 @@ class GeocoderCommandController extends CommandController {
 	protected $geocodeService;
 
 	/**
+	 * @var PropertyMapper
+	 * @Flow\Inject
+	 */
+	protected $propertyMapper;
+
+	/**
 	 * Check report status
 	 *
 	 * @param string $workspace
+	 * @param boolean $force
 	 */
-	public function reverseCommand($workspace = 'live') {
+	public function reverseCommand($workspace = 'live', $force = FALSE) {
 		$context = $this->createContext($workspace);
 		$flowQuery = new FlowQuery(array($context->getRootNode()));
 		$flowQuery = $flowQuery->find('[instanceof Ttree.Map:BaseMap]');
 
+		$unmatchedNodes = [];
 		$count = $match = 0;
 		/** @var NodeInterface $node */
 		foreach ($flowQuery as $node) {
 			$this->outputLine('  %s', array($node->getLabel()));
-			if (trim($node->getProperty('longitude')) !== '' && trim($node->getProperty('latitude')) !== '') {
+			if ($force === FALSE && trim($node->getProperty('longitude')) !== '' && trim($node->getProperty('latitude')) !== '') {
 				continue;
 			}
-			$streetAddress = preg_replace('/CP[ ]?[0-9]*/m', '', $node->getProperty('streetAddress'));
-			$address = sprintf('%s, %s %s', $streetAddress, $node->getProperty('postalCode'), $node->getProperty('addressLocality'));
+			$address = $this->propertyMapper->convert($node, Address::class);
 			$coordinates = $this->geocodeService->geocode($address);
 			if ($coordinates !== NULL) {
 				$node->setProperty('longitude', $coordinates['longitude']);
 				$node->setProperty('latitude', $coordinates['latitude']);
 				++$match;
+			} else {
+				$unmatchedNodes[] = $node;
 			}
 			sleep(1);
 			++$count;
 		}
 
 		$this->outputLine('Number of processed nodes: %d', [$count]);
-		$this->outputLine('  with match: %d', [$match]);
+		$this->outputLine('Node without Reverse Geocoding: %d', [$match]);
+		foreach ($unmatchedNodes as $node) {
+			$this->outputLine('  Node: %s', [$node->getLabel()]);
+		}
 
 	}
 
