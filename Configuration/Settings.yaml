@@ -4,6 +4,10 @@ TYPO3:
       autoInclude:
         'Ttree.Map': TRUE
 
+  TypoScript:
+    defaultContext:
+      GeoPoint: 'Ttree\Map\Eel\Helper\GeoPointHelper'
+
 Ttree:
   Map:
     styles:
