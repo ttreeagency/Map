@@ -4,13 +4,10 @@ namespace: TypoScript=TYPO3.TypoScript
 
 prototype(TYPO3.Neos:Page) {
 	head {
-
 		ttreeMapHeaderData = TYPO3.TypoScript:Template {
 			templatePath = 'resource://Ttree.Map/Private/Templates/TypoScriptObjects/HeaderData.html'
 			node = ${node}
-
 			@position = 'after javascripts'
-			@if.hasMap = ${q(documentNode).is('[instanceof Ttree.Map:BaseMap]') || q(documentNode).children('[instanceof Ttree.Map:BaseMap]').count() > 0  || node.context.workspace.name != 'live'}
 		}
 	}
 }
