@@ -21,16 +21,19 @@ TtreeMap = {
 		});
 	},
 	initialize: function() {
-		$(".ttree-map-configuration-js").each(function() {
-			var el = $(this),
-				configuration = JSON.parse(decodeURIComponent(el.data('ttreeMapConfiguration')));
+		if (typeof $ !== 'undefined') {
+			$(".ttree-map-configuration-js").each(function () {
+				var el = $(this),
+					configuration = JSON.parse(decodeURIComponent(el.data('ttreeMapConfiguration')));
 
-			TtreeMap.initializeSingleMap(el[0], configuration);
-		});
-
+				TtreeMap.initializeSingleMap(el[0], configuration);
+			});
+		}
 	}
 };
 
-$(document).ready(function ($) {
-	google.maps.event.addDomListener(window, 'load', TtreeMap.initialize);
-});
+if (typeof $ !== 'undefined') {
+	$(document).ready(function () {
+		google.maps.event.addDomListener(window, 'load', TtreeMap.initialize);
+	});
+}
