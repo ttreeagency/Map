@@ -1,16 +1,16 @@
 <?php
 namespace Ttree\Map\Eel\Helper;
 
+use TYPO3\Eel\ProtectedContextAwareInterface;
 use TYPO3\Flow\Annotations as Flow;
 use TYPO3\TYPO3CR\Domain\Model\NodeInterface;
-use TYPO3\TYPO3CR\Search\Eel\IndexingHelper as ContentRepositoryIndexingHelper;
 
 /**
  * GeoPoint EEL Helper
  *
  * @Flow\Proxy(false)
  */
-class GeoPointHelper extends ContentRepositoryIndexingHelper {
+class GeoPointHelper implements ProtectedContextAwareInterface {
 
 	/**
 	 * Generate a valid ES Geo Point
