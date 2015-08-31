@@ -2,13 +2,14 @@ prototype(Ttree.Map:Map) {
 	templatePath = 'resource://Ttree.Map/Private/Templates/NodeTypes/Map.html'
 
 	identifier = ${String.md5(q(node).property('_path'))}
-	address = NULL
-	@override.address = ${this.address}
+	defaultAddress = NULL
+	address = ${q(node).property('defaultAddress') ? q(node).property('defaultAddress') : this.defaultAddress}
+	@context.address = ${this.address}
 
 	width = '100%'
 	height = '300px'
 
-	@override {
+	@context {
 		address = ${this.address}
 		identifier = ${this.identifier}
 

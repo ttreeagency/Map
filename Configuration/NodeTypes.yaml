@@ -111,6 +111,16 @@
           group: 'mapAdvanced'
 
 'Ttree.Map:Map':
+  properties:
+    defaultAddress:
+      type: string
+      defaultValue: '10'
+      ui:
+        label: 'Address'
+        reloadPageIfChanged: TRUE
+        inspector:
+          group: 'mapBase'
+          position: 1
   superTypes:
     - 'TYPO3.Neos:Content'
     - 'Ttree.Map:BaseMap'
