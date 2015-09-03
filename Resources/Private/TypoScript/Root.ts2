@@ -3,11 +3,11 @@ include: NodeTypes/*
 namespace: TypoScript=TYPO3.TypoScript
 
 prototype(TYPO3.Neos:Page) {
-	head {
-		ttreeMapHeaderData = TYPO3.TypoScript:Template {
+	body {
+		javascripts.ttreeMap = TYPO3.TypoScript:Template {
 			templatePath = 'resource://Ttree.Map/Private/Templates/TypoScriptObjects/HeaderData.html'
 			node = ${node}
-			@position = 'after javascripts'
+			@position = 'end'
 		}
 	}
 }
