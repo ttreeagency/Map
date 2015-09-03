@@ -114,7 +114,6 @@
   properties:
     defaultAddress:
       type: string
-      defaultValue: '10'
       ui:
         label: 'Address'
         reloadPageIfChanged: TRUE
