@@ -1,12 +1,17 @@
 include: NodeTypes/*
 
-namespace: TypoScript=TYPO3.TypoScript
-
 prototype(TYPO3.Neos:Page) {
 	body {
-		javascripts.ttreeMap = TYPO3.TypoScript:Template {
-			templatePath = 'resource://Ttree.Map/Private/Templates/TypoScriptObjects/HeaderData.html'
-			node = ${node}
+		javascripts.map = TYPO3.TypoScript:Array {
+			api = Ttree.Script:External {
+				uri = 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false'
+			}
+			frontend = Ttree.Script:Resource {
+				uri = 'resource://Ttree.Map/Public/JavaScript/Map.js'
+			}
+			backend = Ttree.Script:Resource {
+				uri = 'resource://Ttree.Map/Public/JavaScript/Backend.js'
+			}
 			@position = 'end'
 		}
 	}
