@@ -6,7 +6,8 @@
   "require": {
     "typo3/flow": "*",
     "typo3/typo3cr": "*",
-    "willdurand/geocoder": "~3.0"
+    "willdurand/geocoder": "~3.0",
+    "ttree/script": "^2.0"
   },
   "autoload": {
     "psr-0": {
