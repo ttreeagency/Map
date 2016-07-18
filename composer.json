@@ -1,7 +1,7 @@
 {
   "name": "ttree/map",
   "type": "typo3-flow-package",
-  "description": "Map Integration for TYPO3 Neos, based on Google Map",
+  "description": "Google Maps Integration for Neos CMS",
   "license": "MIT",
   "require": {
     "typo3/flow": "*",
