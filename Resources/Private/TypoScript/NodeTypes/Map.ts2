@@ -32,4 +32,5 @@ prototype(Ttree.Map:Map) {
 
 			@process.rawUrlEncode = ${String.rawUrlEncode(value)}
 		}
+	}
 }
