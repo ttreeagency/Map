@@ -27,7 +27,7 @@ class ConfigurationImplementation extends TemplateImplementation {
 	 * @return float
 	 */
 	public function getLongitude() {
-		$longitude = $this->tsValue('latitude');
+		$longitude = $this->tsValue('longitude');
 		if (is_float($longitude)) {
 			return $longitude;
 		}
