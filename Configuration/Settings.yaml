@@ -1,10 +1,10 @@
-TYPO3:
+Neos:
   Neos:
-    typoScript:
+    fusion:
       autoInclude:
         'Ttree.Map': TRUE
 
-  TypoScript:
+  Fusion:
     defaultContext:
       GeoPoint: 'Ttree\Map\Eel\Helper\GeoPointHelper'
 

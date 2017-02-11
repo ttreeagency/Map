@@ -3,12 +3,12 @@ namespace Ttree\Map\Command;
 
 use Ttree\Map\Domain\Model\Address;
 use Ttree\Map\Service\GeocoderService;
-use TYPO3\Eel\FlowQuery\FlowQuery;
-use TYPO3\Flow\Annotations as Flow;
-use TYPO3\Flow\Cli\CommandController;
-use TYPO3\Flow\Property\PropertyMapper;
-use TYPO3\TYPO3CR\Domain\Model\NodeInterface;
-use TYPO3\TYPO3CR\Domain\Service\ContextFactoryInterface;
+use Neos\Eel\FlowQuery\FlowQuery;
+use Neos\Flow\Annotations as Flow;
+use Neos\Flow\Cli\CommandController;
+use Neos\Flow\Property\PropertyMapper;
+use Neos\ContentRepository\Domain\Model\NodeInterface;
+use Neos\ContentRepository\Domain\Service\ContextFactoryInterface;
 
 class GeocoderCommandController extends CommandController {
 
@@ -75,7 +75,7 @@ class GeocoderCommandController extends CommandController {
 	 *
 	 * @param string $workspaceName
 	 * @param array $languageIdentifiers
-	 * @return \TYPO3\TYPO3CR\Domain\Service\Context
+	 * @return \Neos\ContentRepository\Domain\Service\Context
 	 */
 	protected function createContext($workspaceName, array $languageIdentifiers = NULL) {
 		$contextProperties = array(

@@ -4,7 +4,7 @@ namespace Ttree\Map\Service;
 use Geocoder\Exception\NoResult;
 use Geocoder\Provider\GoogleMaps;
 use Ivory\HttpAdapter\CurlHttpAdapter;
-use TYPO3\Flow\Annotations as Flow;
+use Neos\Flow\Annotations as Flow;
 
 /**
  * Geocoder Service

@@ -1,7 +1,7 @@
 <?php
 namespace Ttree\Map\Domain\Model;
 
-use TYPO3\Flow\Annotations as Flow;
+use Neos\Flow\Annotations as Flow;
 
 /**
  * Address

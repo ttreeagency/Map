@@ -1,9 +1,9 @@
 <?php
 namespace Ttree\Map\Service;
 
-use TYPO3\Flow\Annotations as Flow;
-use TYPO3\Flow\Property\PropertyMapper;
-use TYPO3\TYPO3CR\Domain\Model\NodeInterface;
+use Neos\Flow\Annotations as Flow;
+use Neos\Flow\Property\PropertyMapper;
+use Neos\ContentRepository\Domain\Model\NodeInterface;
 use Ttree\Map\Domain\Model\Address;
 
 /**

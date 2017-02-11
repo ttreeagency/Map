@@ -17,7 +17,7 @@ prototype(Ttree.Map:Map) {
 		height = ${q(node).property('height') ? q(node).property('height') : this.height}
 	}
 
-	attributes = TYPO3.TypoScript:Attributes {
+	attributes = Neos.Fusion:Attributes {
 		id = ${"ttree-map-" + identifier}
 		data-identifier = ${identifier}
 

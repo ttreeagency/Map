@@ -1,6 +1,6 @@
 prototype(Ttree.Map:Configuration) >
 prototype(Ttree.Map:Configuration) {
-	@class = 'Ttree\\Map\\TypoScript\\ConfigurationImplementation'
+	@class = 'Ttree\\Map\\Fusion\\ConfigurationImplementation'
 
 	map = ${node}
 

@@ -1,9 +1,9 @@
 <?php
-namespace Ttree\Map\TypoScript;
+namespace Ttree\Map\Fusion;
 
-use TYPO3\Flow\Annotations as Flow;
-use TYPO3\TYPO3CR\Domain\Model\NodeInterface;
-use TYPO3\TypoScript\TypoScriptObjects\TemplateImplementation;
+use Neos\Flow\Annotations as Flow;
+use Neos\ContentRepository\Domain\Model\NodeInterface;
+use Neos\Fusion\FusionObjects\TemplateImplementation;
 
 /**
  * Google Map Configuration TS implementation
@@ -11,7 +11,7 @@ use TYPO3\TypoScript\TypoScriptObjects\TemplateImplementation;
 class ConfigurationImplementation extends TemplateImplementation {
 
 	/**
-	 * @flow\inject(setting="styles")
+	 * @Flow\InjectConfiguration("styles")
 	 * @var array
 	 */
 	protected $styles;

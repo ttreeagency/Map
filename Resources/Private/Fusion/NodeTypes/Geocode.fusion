@@ -1,6 +1,6 @@
 prototype(Ttree.Map:Geocode) >
 prototype(Ttree.Map:Geocode) {
-	@class = 'Ttree\\Map\\TypoScript\\GeocodeImplementation'
+	@class = 'Ttree\\Map\\Fusion\\GeocodeImplementation'
 
 	address = 'rue du valentin 34, lausanne'
 }

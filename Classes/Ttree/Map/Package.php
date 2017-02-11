@@ -1,8 +1,8 @@
 <?php
 namespace Ttree\Map;
 
-use TYPO3\Flow\Core\Bootstrap;
-use TYPO3\Flow\Package\Package as BasePackage;
+use Neos\Flow\Core\Bootstrap;
+use Neos\Flow\Package\Package as BasePackage;
 
 /**
 * The Ttree Map Package
@@ -15,7 +15,7 @@ class Package extends BasePackage {
 	 */
 	public function boot(Bootstrap $bootstrap) {
 		$dispatcher = $bootstrap->getSignalSlotDispatcher();
-		$dispatcher->connect('TYPO3\TYPO3CR\Domain\Model\Node', 'nodePropertyChange', 'Ttree\Map\Service\NodeGeocoderService', 'handleNodePropertyChanged');
+		$dispatcher->connect('Neos\ContentRepository\Domain\Model\Node', 'nodePropertyChange', 'Ttree\Map\Service\NodeGeocoderService', 'handleNodePropertyChanged');
 	}
 
 }

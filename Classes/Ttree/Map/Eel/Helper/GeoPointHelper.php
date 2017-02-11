@@ -1,9 +1,9 @@
 <?php
 namespace Ttree\Map\Eel\Helper;
 
-use TYPO3\Eel\ProtectedContextAwareInterface;
-use TYPO3\Flow\Annotations as Flow;
-use TYPO3\TYPO3CR\Domain\Model\NodeInterface;
+use Neos\Eel\ProtectedContextAwareInterface;
+use Neos\Flow\Annotations as Flow;
+use Neos\ContentRepository\Domain\Model\NodeInterface;
 
 /**
  * GeoPoint EEL Helper
