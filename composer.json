@@ -4,10 +4,9 @@
   "description": "Google Maps Integration for Neos CMS",
   "license": "MIT",
   "require": {
-    "neos/flow": "*",
-    "neos/content-repository": "*",
+    "neos/neos": "^3.0",
     "willdurand/geocoder": "~3.0",
-    "ttree/script": "dev-master"
+    "ttree/script": "^3.0"
   },
   "autoload": {
     "psr-0": {
