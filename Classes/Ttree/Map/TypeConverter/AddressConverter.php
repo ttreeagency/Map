@@ -1,11 +1,11 @@
 <?php
 namespace Ttree\Map\TypeConverter;
 
-use TYPO3\Flow\Annotations as Flow;
-use TYPO3\Flow\Property\Exception\InvalidPropertyMappingConfigurationException;
-use TYPO3\Flow\Property\PropertyMappingConfigurationInterface;
-use TYPO3\Flow\Property\TypeConverter\AbstractTypeConverter;
-use TYPO3\TYPO3CR\Domain\Model\NodeInterface;
+use Neos\Flow\Annotations as Flow;
+use Neos\Flow\Property\Exception\InvalidPropertyMappingConfigurationException;
+use Neos\Flow\Property\PropertyMappingConfigurationInterface;
+use Neos\Flow\Property\TypeConverter\AbstractTypeConverter;
+use Neos\ContentRepository\Domain\Model\NodeInterface;
 use Ttree\Map\Domain\Model\Address;
 
 /**
@@ -39,7 +39,7 @@ class AddressConverter extends AbstractTypeConverter {
 	 * @param string $targetType
 	 * @param array $convertedChildProperties
 	 * @param PropertyMappingConfigurationInterface $configuration
-	 * @return Address|\TYPO3\Flow\Error\Error
+	 * @return Address|\Neos\Flow\Error\Error
 	 * @throws InvalidPropertyMappingConfigurationException
 	 * @api
 	 */

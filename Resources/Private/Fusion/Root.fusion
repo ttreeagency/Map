@@ -1,8 +1,8 @@
 include: NodeTypes/*
 
-prototype(TYPO3.Neos:Page) {
+prototype(Neos.Neos:Page) {
 	body {
-		javascripts.map = TYPO3.TypoScript:Array {
+		javascripts.map = Neos.Fusion:Array {
 			api = Ttree.Script:External {
 				uri = 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false'
 			}

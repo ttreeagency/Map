@@ -1,13 +1,13 @@
 {
   "name": "ttree/map",
-  "type": "typo3-flow-package",
+  "type": "neos-package",
   "description": "Google Maps Integration for Neos CMS",
   "license": "MIT",
   "require": {
-    "typo3/flow": "*",
-    "typo3/typo3cr": "*",
+    "neos/flow": "*",
+    "neos/content-repository": "*",
     "willdurand/geocoder": "~3.0",
-    "ttree/script": "^2.0"
+    "ttree/script": "dev-master"
   },
   "autoload": {
     "psr-0": {

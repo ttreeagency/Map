@@ -1,14 +1,14 @@
 <?php
-namespace Ttree\Map\TypoScript;
+namespace Ttree\Map\Fusion;
 
 use Ttree\Map\Service\GeocoderService;
-use TYPO3\Flow\Annotations as Flow;
-use TYPO3\TypoScript\TypoScriptObjects\AbstractTypoScriptObject;
+use Neos\Flow\Annotations as Flow;
+use Neos\Fusion\FusionObjects\AbstractFusionObject;
 
 /**
  * Convert the given adresse to longitude / latitude
  */
-class GeocodeImplementation extends AbstractTypoScriptObject {
+class GeocodeImplementation extends AbstractFusionObject {
 
 	/**
 	 * @var GeocoderService
