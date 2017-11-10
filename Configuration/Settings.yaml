@@ -10,6 +10,9 @@ Neos:
 
 Ttree:
   Map:
+    apiKey:
+      name: "API KEY"
+
     styles:
       default:
         name: "Default Styles"
