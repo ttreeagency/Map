@@ -3,14 +3,14 @@ include: NodeTypes/*
 prototype(Neos.Neos:Page) {
 	body {
 		javascripts.map = Neos.Fusion:Array {
-			api = Ttree.Script:External {
-				uri = 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false'
-			}
 			frontend = Ttree.Script:Resource {
 				uri = 'resource://Ttree.Map/Public/JavaScript/Map.js'
 			}
 			backend = Ttree.Script:Resource {
 				uri = 'resource://Ttree.Map/Public/JavaScript/Backend.js'
+			}
+			api = Ttree.Script:External {
+				uri = ${'https://maps.googleapis.com/maps/api/js?callback=TtreeMap.initialize&key=' +Configuration.setting('Ttree.Map.apiKey')}
 			}
 			@position = 'end'
 		}
