@@ -16,6 +16,7 @@ class GeocoderService {
 
 	/**
 	 * @var GoogleMaps
+     * @Flow\Inject()
 	 */
 	protected $geocoder;
 
@@ -23,14 +24,6 @@ class GeocoderService {
 	 * @var array
 	 */
 	protected $runtimeCache = [];
-
-	/**
-	 * @return void
-	 */
-	public function initializeObject() {
-		$curl = new CurlHttpAdapter();
-		$this->geocoder = new GoogleMaps($curl);
-	}
 
 	/**
 	 * @param string $address

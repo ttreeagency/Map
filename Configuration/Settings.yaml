@@ -12,7 +12,12 @@ Ttree:
   Map:
     apiKey:
       name: "API KEY"
-
+    # Configure GoogleMaps Geocoder
+    geocoder:
+      locale: null
+      region: null
+      useSSL: false
+      apiKey: null
     styles:
       default:
         name: "Default Styles"
