@@ -14,10 +14,10 @@ use Neos\Flow\Annotations as Flow;
  */
 class GeocoderService {
 
-	/**
-	 * @var GoogleMaps
+    /**
+     * @var GoogleMaps
      * @Flow\Inject()
-	 */
+     */
 	protected $geocoder;
 
 	/**
