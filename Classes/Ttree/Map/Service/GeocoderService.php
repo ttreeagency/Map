@@ -3,7 +3,6 @@ namespace Ttree\Map\Service;
 
 use Geocoder\Exception\NoResult;
 use Geocoder\Provider\GoogleMaps;
-use Ivory\HttpAdapter\CurlHttpAdapter;
 use Neos\Flow\Annotations as Flow;
 
 /**
