@@ -3,7 +3,6 @@ namespace Ttree\Map\Service;
 
 use Geocoder\Exception\NoResult;
 use Geocoder\Provider\GoogleMaps;
-use Ivory\HttpAdapter\CurlHttpAdapter;
 use Neos\Flow\Annotations as Flow;
 
 /**
@@ -14,23 +13,16 @@ use Neos\Flow\Annotations as Flow;
  */
 class GeocoderService {
 
-	/**
-	 * @var GoogleMaps
-	 */
+    /**
+     * @var GoogleMaps
+     * @Flow\Inject()
+     */
 	protected $geocoder;
 
 	/**
 	 * @var array
 	 */
 	protected $runtimeCache = [];
-
-	/**
-	 * @return void
-	 */
-	public function initializeObject() {
-		$curl = new CurlHttpAdapter();
-		$this->geocoder = new GoogleMaps($curl);
-	}
 
 	/**
 	 * @param string $address
