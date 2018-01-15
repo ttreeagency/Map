@@ -5,7 +5,9 @@
   "license": "MIT",
   "require": {
     "neos/neos": "^3.0",
-    "willdurand/geocoder": "~3.0",
+    "geocoder-php/google-maps-provider": "^4.1",
+    "php-http/guzzle6-adapter": "^1.1",
+    "php-http/message": "^1.6",
     "ttree/script": "^3.0"
   },
   "autoload": {

@@ -1,8 +1,8 @@
 <?php
 namespace Ttree\Map\Service;
 
-use Geocoder\Exception\NoResult;
-use Geocoder\Provider\GoogleMaps;
+use Geocoder\Geocoder;
+use Geocoder\Query\GeocodeQuery;
 use Neos\Flow\Annotations as Flow;
 
 /**
@@ -14,7 +14,7 @@ use Neos\Flow\Annotations as Flow;
 class GeocoderService {
 
     /**
-     * @var GoogleMaps
+     * @var Geocoder
      * @Flow\Inject()
      */
 	protected $geocoder;
@@ -35,21 +35,20 @@ class GeocoderService {
 			if (isset($this->runtimeCache[$cacheKey])) {
 				return $this->runtimeCache[$cacheKey];
 			}
-			$coordinates = $this->geocoder->geocode($address);
+            $coordinates = $this->geocoder->geocodeQuery(GeocodeQuery::create($address));
 			if (!$coordinates->count()) {
 				return NULL;
 			}
 			$address = $coordinates->first();
 
 			$data = [
-				'longitude' => $address->getLongitude(),
-				'latitude' => $address->getLatitude()
+				'longitude' => $address->getCoordinates()->getLongitude(),
+				'latitude' => $address->getCoordinates()->getLatitude()
 			];
 			$this->runtimeCache[$cacheKey] = $data;
 			return $data;
-		} catch (NoResult $exception) {
+		} catch (\Geocoder\Exception\Exception $exception) {
 			return NULL;
 		}
 	}
-
 }
