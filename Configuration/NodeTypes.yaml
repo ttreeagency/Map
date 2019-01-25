@@ -1,124 +1,124 @@
 'Ttree.Map:PointOfInterest':
-  abstract: TRUE
+  abstract: true
   ui:
     inspector:
       groups:
         mapBase:
-          label: 'Configuration'
-          tab: 'map'
+          label: Configuration
+          tab: map
   properties:
     longitude:
       type: string
       ui:
         label: 'Longitude:'
-        reloadIfChanged: TRUE
+        reloadIfChanged: true
         inspector:
-          group: 'mapBase'
+          group: mapBase
           position: 1
     reversedLongitude:
       type: string
       ui:
         inspector:
-          group: ~
+          group: null
     latitude:
       type: string
       ui:
         label: 'Latitude:'
-        reloadIfChanged: TRUE
+        reloadIfChanged: true
         inspector:
-          group: 'mapBase'
+          group: mapBase
           position: 2
     reversedLatitude:
       type: string
       ui:
         inspector:
-          group: ~
+          group: null
 
 'Ttree.Map:BaseMap':
-  abstract: TRUE
+  abstract: true
   ui:
-    group: 'general'
-    icon: 'icon-map-marker'
-    label: 'Map'
+    group: general
+    icon: icon-map-marker
+    label: Map
     inspector:
       tabs:
         map:
-          label: 'Map'
-          icon: 'icon-map-marker'
+          label: Map
+          icon: icon-map-marker
       groups:
         mapBase:
-          label: 'Configuration'
-          tab: 'map'
+          label: Configuration
+          tab: map
         mapAdvanced:
           label: 'Advanced Configuration'
-          tab: 'map'
+          tab: map
   properties:
     zoomlevel:
       type: string
       defaultValue: '10'
       ui:
         label: 'Zoomlevel 1-20'
-        reloadIfChanged: TRUE
+        reloadIfChanged: true
         inspector:
-          group: 'mapBase'
+          group: mapBase
     width:
       type: string
-      defaultValue: '100%'
+      defaultValue: 100%
       ui:
-        label: 'Width'
-        reloadIfChanged: TRUE
+        label: Width
+        reloadIfChanged: true
         inspector:
-          group: 'mapBase'
+          group: mapBase
     height:
       type: string
-      defaultValue: '400px'
+      defaultValue: 400px
       ui:
-        label: 'Height'
-        reloadIfChanged: TRUE
+        label: Height
+        reloadIfChanged: true
         inspector:
-          group: 'mapBase'
+          group: mapBase
     disableDefaultUI:
       type: boolean
-      defaultValue: FALSE
+      defaultValue: false
       ui:
         label: 'Disable Default UI'
-        reloadIfChanged: TRUE
+        reloadIfChanged: true
         inspector:
-          group: 'mapAdvanced'
+          group: mapAdvanced
     panControl:
       type: boolean
-      defaultValue: TRUE
+      defaultValue: true
       ui:
         label: 'Pan Control'
-        reloadIfChanged: TRUE
+        reloadIfChanged: true
         inspector:
-          group: 'mapAdvanced'
+          group: mapAdvanced
     zoomControl:
       type: boolean
-      defaultValue: TRUE
+      defaultValue: true
       ui:
         label: 'Zoom Control'
-        reloadIfChanged: TRUE
+        reloadIfChanged: true
         inspector:
-          group: 'mapAdvanced'
+          group: mapAdvanced
     scaleControl:
       type: boolean
-      defaultValue: TRUE
+      defaultValue: true
       ui:
         label: 'Scale Control'
-        reloadIfChanged: TRUE
+        reloadIfChanged: true
         inspector:
-          group: 'mapAdvanced'
+          group: mapAdvanced
 
 'Ttree.Map:Map':
   properties:
     defaultAddress:
       type: string
       ui:
-        label: 'Address'
-        reloadPageIfChanged: TRUE
+        label: Address
+        reloadPageIfChanged: true
         inspector:
-          group: 'mapBase'
+          group: mapBase
           position: 1
   superTypes:
     'Neos.Neos:Content': true

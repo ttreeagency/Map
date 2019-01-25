@@ -20,7 +20,7 @@ class GeocodeImplementation extends AbstractFusionObject {
 	 * @return string
 	 */
 	public function getAddress() {
-		return $this->tsValue('address');
+		return $this->fusionValue('address');
 	}
 
 	/**

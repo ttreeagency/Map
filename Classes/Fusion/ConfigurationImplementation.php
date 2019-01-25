@@ -20,14 +20,14 @@ class ConfigurationImplementation extends TemplateImplementation {
 	 * @return array
 	 */
 	public function getMap() {
-		return $this->tsValue('map') ?: array();
+		return $this->fusionValue('map') ?: array();
 	}
 
 	/**
 	 * @return float
 	 */
 	public function getLongitude() {
-		$longitude = $this->tsValue('longitude');
+		$longitude = $this->fusionValue('longitude');
 		if (is_float($longitude)) {
 			return $longitude;
 		}
@@ -42,7 +42,7 @@ class ConfigurationImplementation extends TemplateImplementation {
 	 * @return float
 	 */
 	public function getLatitude() {
-		$latitude = $this->tsValue('latitude');
+		$latitude = $this->fusionValue('latitude');
 		if (is_float($latitude)) {
 			return $latitude;
 		}
@@ -57,28 +57,28 @@ class ConfigurationImplementation extends TemplateImplementation {
 	 * @return array
 	 */
 	public function getCoordinates() {
-		return $this->tsValue('coordinates');
+		return $this->fusionValue('coordinates');
 	}
 
 	/**
 	 * @return integer
 	 */
 	public function getZoomLevel() {
-		return (integer)$this->tsValue('zoomLevel');
+		return (integer)$this->fusionValue('zoomLevel');
 	}
 
 	/**
 	 * @return string
 	 */
 	public function getHeight() {
-		return $this->tsValue('height');
+		return $this->fusionValue('height');
 	}
 
 	/**
 	 * @return string
 	 */
 	public function getWidth() {
-		return $this->tsValue('width');
+		return $this->fusionValue('width');
 	}
 
 	/**
@@ -96,10 +96,10 @@ class ConfigurationImplementation extends TemplateImplementation {
 			'latitude' => $this->getLatitude(),
 			'options' => array(
 				'zoom' => $this->getZoomLevel(),
-				'disableDefaultUI' => $this->tsValue('disableDefaultUI'),
-				'panControl' => $this->tsValue('panControl'),
-				'zoomControl' => $this->tsValue('zoomControl'),
-				'scaleControl' => $this->tsValue('scaleControl')
+				'disableDefaultUI' => $this->fusionValue('disableDefaultUI'),
+				'panControl' => $this->fusionValue('panControl'),
+				'zoomControl' => $this->fusionValue('zoomControl'),
+				'scaleControl' => $this->fusionValue('scaleControl')
 			)
 		);
 

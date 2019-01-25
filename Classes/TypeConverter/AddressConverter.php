@@ -39,7 +39,7 @@ class AddressConverter extends AbstractTypeConverter {
 	 * @param string $targetType
 	 * @param array $convertedChildProperties
 	 * @param PropertyMappingConfigurationInterface $configuration
-	 * @return Address|\Neos\Flow\Error\Error
+	 * @return Address|\Neos\Error\Messages\Error
 	 * @throws InvalidPropertyMappingConfigurationException
 	 * @api
 	 */
