@@ -121,6 +121,6 @@
           group: 'mapBase'
           position: 1
   superTypes:
-    - 'Neos.Neos:Content'
-    - 'Ttree.Map:BaseMap'
-    - 'Ttree.Map:PointOfInterest'
+    'Neos.Neos:Content': true
+    'Ttree.Map:BaseMap': true
+    'Ttree.Map:PointOfInterest': true
