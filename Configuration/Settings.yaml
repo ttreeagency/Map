@@ -16,7 +16,6 @@ Ttree:
     geocoder:
       locale: null
       region: null
-      useSSL: true
       apiKey: null
     styles:
       default:
