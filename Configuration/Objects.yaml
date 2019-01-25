@@ -1,15 +1,3 @@
-Geocoder\Provider\GoogleMaps:
-  arguments:
-    1:
-      object: 'Ivory\HttpAdapter\CurlHttpAdapter'
-    2:
-      setting: 'Ttree.Map.geocoder.locale'
-    3:
-      setting: 'Ttree.Map.geocoder.region'
-    4:
-      setting: 'Ttree.Map.geocoder.useSSL'
-    5:
-      setting: 'Ttree.Map.geocoder.apiKey'
-
-Ivory\HttpAdapter\CurlHttpAdapter:
-  arguments: ~
+Geocoder\Geocoder:
+  scope: singleton
+  factoryObjectName: Ttree\Map\Factory\GoogleMapsGeocoderFactory
