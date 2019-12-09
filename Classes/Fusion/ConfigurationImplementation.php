@@ -28,7 +28,7 @@ class ConfigurationImplementation extends TemplateImplementation {
 	 */
 	public function getLongitude() {
 		$longitude = $this->fusionValue('longitude');
-		if (is_float($longitude)) {
+		if (is_float($longitude) || is_numeric($longitude)) {
 			return $longitude;
 		}
 		$coordinates = $this->getCoordinates();
@@ -43,7 +43,7 @@ class ConfigurationImplementation extends TemplateImplementation {
 	 */
 	public function getLatitude() {
 		$latitude = $this->fusionValue('latitude');
-		if (is_float($latitude)) {
+		if (is_float($latitude) || is_numeric($latitude)) {
 			return $latitude;
 		}
 		$coordinates = $this->getCoordinates();
