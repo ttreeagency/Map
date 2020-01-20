@@ -1,4 +1,4 @@
-prototype(Ttree.Map:Map) {
+prototype(Ttree.Map:Map) < prototype(Neos.Neos:Content) {
 	templatePath = 'resource://Ttree.Map/Private/Templates/NodeTypes/Map.html'
 
 	identifier = ${String.md5(q(node).property('_path'))}
