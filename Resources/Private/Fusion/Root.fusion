@@ -8,6 +8,7 @@ prototype(Neos.Neos:Page) {
 			}
 			backend = Ttree.Script:Resource {
 				uri = 'resource://Ttree.Map/Public/JavaScript/Backend.js'
+				@if.isInBackend = ${node.context.inBackend}
 			}
 			api = Ttree.Script:External {
 				uri = ${'https://maps.googleapis.com/maps/api/js?callback=TtreeMap.initialize&key=' +Configuration.setting('Ttree.Map.apiKey')}
