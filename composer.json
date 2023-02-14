@@ -4,7 +4,7 @@
     "description": "Google Maps Integration for Neos CMS",
     "license": "MIT",
     "require": {
-        "neos/neos": "^5.0 || ^7.0",
+        "neos/neos": "^5.0 || ^7.0 || ^8.0",
         "geocoder-php/google-maps-provider": "^4.1",
         "php-http/guzzle6-adapter": "^1.1 || ^2.0",
         "php-http/message": "^1.6",
@@ -96,7 +96,10 @@
             "Neos.Flow-20201003165200",
             "Neos.Flow-20201109224100",
             "Neos.Flow-20201205172733",
-            "Neos.Flow-20201207104500"
+            "Neos.Flow-20201207104500",
+            "Neos.Neos-20220318111600",
+            "Neos.Flow-20220318174300",
+            "Neos.Fusion-20220326120900"
         ]
     }
 }
