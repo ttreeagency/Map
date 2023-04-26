@@ -7,7 +7,7 @@ namespace Ttree\Map\Factory;
 use Geocoder\Geocoder;
 use Geocoder\Provider\GoogleMaps\GoogleMaps;
 use Geocoder\StatefulGeocoder;
-use Http\Adapter\Guzzle6\Client;
+use Http\Adapter\Guzzle7\Client;
 use Neos\Flow\Annotations as Flow;
 
 class GoogleMapsGeocoderFactory
